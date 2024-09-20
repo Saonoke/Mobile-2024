@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hello_world/widget/image_widget.dart';
+import 'package:hello_world/widget/loading_cupertino.dart';
+import 'package:hello_world/widget/text_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +34,80 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'tes'),
+    );
+  }
+}
+
+class MyAppInput extends StatelessWidget {
+  const MyAppInput({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          // TRY THIS: Try changing the color here to a specific color (to
+          // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
+          // change color while the other colors stay the same.
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          title: const Text('Contoh Textfield'),
+        ),
+        body: const Padding(
+            padding: EdgeInsets.all(30),
+            child: SingleChildScrollView(
+              child: Center(
+                child: Column(
+                  children: [
+                    TextField(
+                      obscureText: false,
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(), labelText: 'nama'),
+                    ),
+                    SizedBox(
+                      height: 200,
+                    ),
+                    TextField(
+                      obscureText: false,
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(), labelText: 'nama'),
+                    )
+                  ],
+                ),
+              ),
+            )));
+  }
+}
+
+class MyLayout extends StatelessWidget {
+  const MyLayout({super.key});
+
+  showAlertDialog(BuildContext context) {
+    Widget okButton = TextButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        child: const Text('OK'));
+
+    AlertDialog alert = AlertDialog(
+      title: const Text('My Tittle'),
+      content: const Text('This is my message'),
+      actions: [okButton],
+    );
+
+    showDialog(context: context, builder: ((context) => alert));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton(
+          onPressed: () {
+            showAlertDialog(context);
+          },
+          child: const Text('Show Alert')),
     );
   }
 }
@@ -55,17 +131,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  DateTime selectedDate = DateTime.now();
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  Future<void> _selectedDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        firstDate: DateTime(2015, 8),
+        lastDate: DateTime(2101));
+    if (picked != null && picked != selectedDate) {
+      setState(() {
+        selectedDate = picked;
+      });
+    }
   }
 
   @override
@@ -84,42 +162,61 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: MyLayout(),
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            // Column is also a layout widget. It takes a list of children and
+            // arranges them vertically. By default, it sizes itself to fit its
+            // children horizontally, and tries to be as tall as its parent.
+            //
+            // Column has various properties to control how it sizes itself and
+            // how it positions its children. Here we use mainAxisAlignment to
+            // center the children vertically; the main axis here is the vertical
+            // axis because Columns are vertical (the cross axis would be
+            // horizontal).
+            //
+            // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
+            // action in the IDE, or press "p" in the console), to see the
+            // wireframe for each widget.
+            // mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                height: 200,
+              ),
+              LoadingCupertino(),
+              const MyImageWidget(),
+              const MyTextWidget(),
+              Text("${selectedDate.toLocal()}".split(' ')[0]),
+              ElevatedButton(
+                  onPressed: () => {
+                        _selectedDate(context),
+                        print(selectedDate.day +
+                            selectedDate.month +
+                            selectedDate.year)
+                      },
+                  child: const Text('Pilih Tangal'))
+            ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          height: 50.0,
+        ),
+      ),
+
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: _incrementCounter,
+      //   tooltip: 'Increment',
+      //   child: const Icon(Icons.add),
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation
+      //     .centerDocked, // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
