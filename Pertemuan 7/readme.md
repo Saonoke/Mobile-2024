@@ -1,56 +1,73 @@
 # Pertemuan 7
-## Nama : Krisna Andika Wijaya
-## Kelas : 3C
-## Absen : 12
-# Praktikum 5
-1. Siapkan project baru
-![langkah 1](image.png)
-2. Mendefinisikan Route
-![langkah 2](image-1.png)
+## Praktikum 7
+1. Buat project baru
+![alt text](image.png)
+2. Menambahkan plugin
+![alt text](image-1.png)
+3. Langkah 3: Buat file red_text_widget.dart
 ![alt text](image-2.png)
-3. Lengkapi kode di main.dart
+4. Tambah widget autosize text
 ![alt text](image-3.png)
-4. Membuat data model
+5. Buat varibel text dan parameter constructor 
 ![alt text](image-4.png)
-5. Lengkapi kode di class HomePage
+6. Tambahkan widget di main.dart
 ![alt text](image-5.png)
-![alt text](image-8.png)
-6. Menambahkan aksi pada ListView
 ![alt text](image-6.png)
-![alt text](image-7.png)
 
-# Tugas
-1. Untuk melakukan pengiriman data ke halaman berikutnya, cukup menambahkan informasi arguments pada penggunaan Navigator. Perbarui kode pada bagian Navigator menjadi seperti berikut.
-![alt text](image-9.png)
-2. Pembacaan nilai yang dikirimkan pada halaman sebelumnya dapat dilakukan menggunakan ModalRoute. Tambahkan kode berikut pada blok fungsi build dalam halaman ItemPage. Setelah nilai didapatkan, anda dapat menggunakannya seperti penggunaan variabel pada umumnya.
-![alt text](image-10.png)
-3. Pada hasil akhir dari aplikasi belanja yang telah anda selesaikan, tambahkan atribut foto produk, stok, dan rating. Ubahlah tampilan menjadi GridView seperti di aplikasi marketplace pada umumnya.
-![alt text](image-16.png)
-![alt text](image-17.png)
-4. Silakan implementasikan Hero widget pada aplikasi belanja Anda dengan mempelajari dari sumber ini:
-![alt text](image-14.png)
-![alt text](image-15.png)
-5. Sesuaikan dan modifikasi tampilan sehingga menjadi aplikasi yang menarik. Selain itu, pecah widget menjadi kode yang lebih kecil. Tambahkan Nama dan NIM di footer aplikasi belanja Anda.
-![alt text](image-20.png)
-![alt text](image-18.png)
-![alt text](image-21.png)
-![alt text](image-22.png)
-![alt text](image-23.png)
+## Tugas Praktikum
+2. Jelaskan maksud dari langkah 2 pada praktikum tersebut
+Menambahkan plugin atau package eksternal dengan menggunakan terminal : 
+```dart
+pub get 
+```
 
-6. Selesaikan Praktikum 5: Navigasi dan Rute tersebut. Cobalah modifikasi menggunakan plugin go_router, lalu dokumentasikan dan push ke repository Anda berupa screenshot setiap hasil pekerjaan beserta penjelasannya di file README.md. Kumpulkan link commit repository GitHub Anda kepada dosen yang telah disepakati!
-    - Install Package go_router
-    ```dart
-    flutter pub add go_router
-    ```
-    ![alt text](image-24.png)
-    - Import to project
-    ![alt text](image-25.png)
-    - Mendefinisikan go_route
-    ![alt text](image-26.png)
-    - Mengirim data 
-    ![alt text](image-27.png)
-    
-![alt text](image-28.png)
-![alt text](image-29.png)
+3. Jelaskan maksud dari langkah 5 pada praktikum tersebut
+Menggunakan plugin autosized text, serta mengatur style teks yang akan digunakan nanti sebagai widget.
+
+4. pada langkah 6 terdapat dua widget yang ditambahkan, jelaskan fungsi dan perbedannya
+```dart
+ Container(
+              color: Colors.yellowAccent,
+              width: 50,
+              child: const RedTextWidget(
+                  text: 'You have pushed the button this many times:'),
+            ),
+```
+jawaban : menyiapkan ukuran kotak dengan lebar 50 pixel, dengan child RedTextWidget dengan isi text berupa string.
+
+```dart
+ Container(
+              color: Colors.greenAccent,
+              width: 100,
+              child: const RedTextWidget(
+                  text: 'You have pushed the button this many times:'),
+            )
+```
+jawaban : menyiapkan ukuran kotak dengan lebar 100 pixel, dengan child RedTextWidget dengan isi text berupa string.
+
+> Perbedaannya terdapat pada lebar containernya yang menjadikan text yang ditampilkan mengikuti lebar dari containernnya sehingga lebar pada container dengan width 100 menampilkan teks yang lebih banyak dari lebar 50
+
+5. Jelaskan maksud dari tiap parameter yang ada di dalam plugin auto_size_text berdasarkan tautan pada dokumentasi ini !
+
+| Parameter  | Deskripsi |
+| ------------- | ------------- |
+| `key*`  | Mengontrol bagaimana satu widget menggantikan widget lain di pohon. |
+| `TextKey`  | Mengatur kunci untuk `Text` widget yang dihasilkan  |
+| `Style`  | Jika bukan null, gaya yang akan digunakan untuk teks ini |
+| `minFontSize`  | Batasan ukuran teks **minimum** yang akan digunakan saat mengubah ukuran teks secara otomatis. Diabaikan jika `presetFontSizesditetapkan.` |
+| `maxFontSize`  | Batasan ukuran teks **maksimum** yang akan digunakan saat mengubah ukuran teks secara otomatis. Diabaikan jika `presetFontSizesditetapkan.`  |
+| `stepGranularity`  | Ukuran langkah di mana ukuran font disesuaikan dengan batasan.|
+| `presentFontSizes`  |Menentukan terlebih dahulu semua ukuran font yang memungkinkan **Penting:** `presetFontSizes` harus dalam urutan menurun.  |
+| `group`  | Sinkronisasikan ukuran beberapa `AutoSizeText` |
+| `textAlign*`  | Bagaimana teks harus disejajarkan secara horizontal. |
+| `textDirection*`  | Arah teks. Ini menentukan bagaimana textAlignnilai seperti `TextAlign.start` dan `TextAlign.end` diinterpretasikan. |
+| `locale*`  | Digunakan untuk memilih font ketika karakter Unicode yang sama dapat ditampilkan secara berbeda, tergantung pada lokal.  |
+| `softwrap*`  | 	Apakah teks harus diputus pada jeda baris lunak.  |
+| `wrapWords*`  | 	Apakah kata-kata yang tidak muat dalam satu baris harus dibungkus. Defaultnya adalah trueberperilaku seperti Text.  |
+| `overflow*`  | Bagaimana luapan visual harus ditangani.  |
+| `overflowReplacement*`  | Jika teksnya meluap dan tidak sesuai batasnya, widget ini akan ditampilkan sebagai gantinya.  |
+| `textScaleFactor*`  | Jumlah piksel font untuk setiap piksel logis. Juga memengaruhi `minFontSize`, `maxFontSize` dan `presetFontSizes`.  |
+| `maxLines*`  | Jumlah baris maksimum opsional untuk teks yang akan direntangkan. |
+| `semanticsLabel*`  | Label semantik alternatif untuk teks ini. |
 
 
