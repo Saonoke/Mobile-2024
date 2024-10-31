@@ -115,3 +115,8 @@ Digunakan untuk me- listen sebuah objek yang ketika objek itu berubah maka, akan
 14. Buat widget _buildMasterPlans
 ![alt text](image-35.png)
 
+
+
+# Hasil
+![alt text](image-36.png)
+![alt text](image-37.png)
