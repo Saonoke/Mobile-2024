@@ -14,6 +14,14 @@
 ![alt text](image-6.png)
 ![alt text](image-7.png)
 
+## Soal 2
+![alt text](image-17.png)
+
+## Soal 3
+> substring : digunakan untuk mengambil string dengan indeks dari 0 sampai 450
+> Catcherror : digunakan untuk error handling ketika terjadi kesalahan saat load data
+![alt text](untitled.gif)
+
 ## Praktikum 2
 1. Buka file main.dart
 ![alt text](image-8.png)
