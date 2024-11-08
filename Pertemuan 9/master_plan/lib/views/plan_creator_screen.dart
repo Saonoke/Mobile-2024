@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:master_plan/models/data_layer.dart';
 import 'package:master_plan/provider/plan_provider.dart';
 import 'package:master_plan/views/plan_screen.dart';
+import 'dart:developer' as developer;
 
 class PlanCreatorScreen extends StatefulWidget {
   const PlanCreatorScreen({super.key});
@@ -66,7 +67,7 @@ class _PlanCreatorScreenState extends State<PlanCreatorScreen> {
   Widget _buildMasterPlans() {
     ValueNotifier<List<Plan>> planNotifier = PlanProvider.of(context);
     List<Plan> plans = planNotifier.value;
-
+    developer.log('$plans', name: 'my.app.plan_creator_screen');
     if (plans.isEmpty) {
       return Column(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:master_plan/provider/plan_provider.dart';
-
+import 'dart:developer' as developer;
 import '../models/data_layer.dart';
 
 class PlanScreen extends StatefulWidget {
@@ -41,6 +41,7 @@ class _PlanScreenState extends State<PlanScreen> {
             valueListenable: plansNotifier,
             builder: (context, plans, child) {
               Plan currentPlan = plans.firstWhere((p) => p.name == plan.name);
+              developer.log('$currentPlan', name: 'my.app.plan_screen');
               return Column(
                 children: [
                   Expanded(child: buildList(currentPlan)),
@@ -68,9 +69,12 @@ class _PlanScreenState extends State<PlanScreen> {
     return FloatingActionButton(
       child: const Icon(Icons.add),
       onPressed: () {
+        print('lets debug this');
         Plan currentPlan = plan;
         int planIndex =
             planNotifier.value.indexWhere((p) => p.name == currentPlan.name);
+        currentPlan = planNotifier.value[planIndex];
+
         List<Task> updatedTasks = List<Task>.from(currentPlan.tasks)
           ..add(const Task());
         planNotifier.value = List<Plan>.from(planNotifier.value)
@@ -84,7 +88,10 @@ class _PlanScreenState extends State<PlanScreen> {
 
   Widget _buildTaskTile(Task task, int index, BuildContext context) {
     ValueNotifier<List<Plan>> planNotifier = PlanProvider.of(context);
-
+    developer.log('plan Notifier top : $planNotifier',
+        name: 'my.app.plan_screen.textformfield');
+    developer.log('index task : $index',
+        name: 'my.app.plan_screen.textformfield');
     return ListTile(
       leading: Checkbox(
           value: task.complete,
@@ -92,6 +99,9 @@ class _PlanScreenState extends State<PlanScreen> {
             Plan currentPlan = plan;
             int planIndex = planNotifier.value
                 .indexWhere((p) => p.name == currentPlan.name);
+            currentPlan = planNotifier.value
+                .firstWhere((p) => p.name == currentPlan.name);
+
             planNotifier.value = List<Plan>.from(planNotifier.value)
               ..[planIndex] = Plan(
                 name: currentPlan.name,
@@ -106,8 +116,14 @@ class _PlanScreenState extends State<PlanScreen> {
         initialValue: task.description,
         onChanged: (text) {
           Plan currentPlan = plan;
+          developer.log('current plan : $currentPlan',
+              name: 'my.app.plan_screen.textformfield');
           int planIndex =
               planNotifier.value.indexWhere((p) => p.name == currentPlan.name);
+          currentPlan =
+              planNotifier.value.firstWhere((p) => p.name == currentPlan.name);
+          developer.log('plan index : $planIndex',
+              name: 'my.app.plan_screen.textformfield');
           planNotifier.value = List<Plan>.from(planNotifier.value)
             ..[planIndex] = Plan(
               name: currentPlan.name,
@@ -117,6 +133,8 @@ class _PlanScreenState extends State<PlanScreen> {
                   complete: task.complete,
                 ),
             );
+          developer.log('plannotifier after text-form : $planNotifier',
+              name: 'my.app.plan_screen.textformfield');
         },
       ),
     );
