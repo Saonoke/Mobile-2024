@@ -99,3 +99,39 @@
    ![alt text](image-23.png)
 3. Run
    ![alt text](image-25.png)
+4. Tambah method handleError()
+   ![alt text](image-26.png)
+
+## Soal 9
+
+![alt text](soal9.gif)
+
+## Soal 10
+
+> Perbedaan pada try catch yang di bungkus dalam sebuah fungsi atau chaining dari async
+
+![alt text](image-27.png)
+
+## Praktikum 6
+1. Install plugin geolocator
+![alt text](image-28.png)
+2. Tambah permisson GPS
+![alt text](image-29.png)
+3. Buat file geolocation.dart
+![alt text](image-30.png)
+4. Edit main.dart
+![alt text](image-32.png)
+5. Tambahkan animasi loading
+
+
+
+## Soal 11
+![alt text](image-31.png)
+
+## Soal 12
+ - percobaan pada browser
+ ![alt text](image-33.png)
+ > pada browser masih bisa mennjalankan selama perizinan lokasi di izinkan
+
+![alt text](soal12.gif)
+

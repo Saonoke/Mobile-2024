@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:books/geolocation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:async/async.dart';
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const FuturePage(),
+      home: const LocationScreen(),
     );
   }
 }
@@ -129,6 +130,18 @@ class _FuturePageState extends State<FuturePage> {
     throw Exception('something terrible happend');
   }
 
+  Future handleError() async {
+    try {
+      await returnError();
+    } catch (error) {
+      setState(() {
+        result = error.toString();
+      });
+    } finally {
+      print("Complete");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -161,15 +174,17 @@ class _FuturePageState extends State<FuturePage> {
                   // });
 
                   // returnFG();
-                  returnError().then((value) {
-                    setState(() {
-                      result = 'success';
-                    });
-                  }).catchError((e) {
-                    setState(() {
-                      result = e.toString();
-                    });
-                  }).whenComplete(() => print("Complete"));
+                  // returnError().then((value) {
+                  //   setState(() {
+                  //     result = 'success';
+                  //   });
+                  // }).catchError((e) {
+                  //   setState(() {
+                  //     result = e.toString();
+                  //   });
+                  // }).whenComplete(() => print("Complete"));
+
+                  handleError();
                 },
                 child: const Text("Go!")),
             const Spacer(),
