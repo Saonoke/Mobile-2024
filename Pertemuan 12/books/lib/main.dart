@@ -89,6 +89,30 @@ class _FuturePageState extends State<FuturePage> {
     return 3;
   }
 
+  void returnFG() {
+    final futures = Future.wait<int>([
+      returnOneAsync(),
+      returnTwoAsync(),
+      returnThreeAsync(),
+    ]);
+    // FutureGroup<int> futureGroup = FutureGroup<int>();
+    // futureGroup.add(returnOneAsync());
+    // futureGroup.add(returnTwoAsync());
+    // futureGroup.add(returnThreeAsync());
+
+    // futureGroup.close();
+    futures.then((List<int> value) {
+      int total = 0;
+      for (var element in value) {
+        total += element;
+      }
+
+      setState(() {
+        result = total.toString();
+      });
+    });
+  }
+
   Future count() async {
     int total = 0;
     total = await returnOneAsync();
@@ -98,6 +122,11 @@ class _FuturePageState extends State<FuturePage> {
     setState(() {
       result = total.toString();
     });
+  }
+
+  Future returnError() async {
+    await Future.delayed(const Duration(seconds: 2));
+    throw Exception('something terrible happend');
   }
 
   @override
@@ -112,14 +141,14 @@ class _FuturePageState extends State<FuturePage> {
             const Spacer(),
             ElevatedButton(
                 onPressed: () {
-                  setState(() {});
-                  getData().then((value) {
-                    result = value.body.toString().substring(0, 450);
-                    setState(() {});
-                  }).catchError((_) {
-                    result = 'An error occured';
-                    setState(() {});
-                  });
+                  // setState(() {});
+                  // getData().then((value) {
+                  //   result = value.body.toString().substring(0, 450);
+                  //   setState(() {});
+                  // }).catchError((_) {
+                  //   result = 'An error occured';
+                  //   setState(() {});
+                  // });
 
                   // count();
 
@@ -127,9 +156,20 @@ class _FuturePageState extends State<FuturePage> {
                   //   setState(() {
                   //     result = value.toString();
                   //   });
-                  // }).catchError((e){
+                  // }).catchError((e) {
                   //   result = 'An error occured';
                   // });
+
+                  // returnFG();
+                  returnError().then((value) {
+                    setState(() {
+                      result = 'success';
+                    });
+                  }).catchError((e) {
+                    setState(() {
+                      result = e.toString();
+                    });
+                  }).whenComplete(() => print("Complete"));
                 },
                 child: const Text("Go!")),
             const Spacer(),
