@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'stream.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,8 +37,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-class StreamHomePage extends StatefulWidget{
+class StreamHomePage extends StatefulWidget {
   const StreamHomePage({super.key});
 
   @override
@@ -45,8 +45,32 @@ class StreamHomePage extends StatefulWidget{
 }
 
 class _StreamHomePageState extends State<StreamHomePage> {
+  Color bgColor = Colors.blueGrey;
+  late ColorStream colorStream;
+
+  void changeColor() async {
+    await for (var eventColor in colorStream.getColor()) {
+      setState(() {
+        bgColor = eventColor;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    colorStream = ColorStream();
+    changeColor();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text("Stream"),
+        ),
+        body: Container(
+          decoration: BoxDecoration(color: bgColor),
+        ));
   }
 }
