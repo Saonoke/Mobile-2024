@@ -8,8 +8,12 @@ class NumberStream {
     controller.sink.add(newNumber);
   }
 
-  close(){
+  close() {
     controller.close();
+  }
+
+  addError() {
+    controller.sink.addError('error');
   }
 }
 

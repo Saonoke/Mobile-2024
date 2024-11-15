@@ -47,6 +47,14 @@
 ![alt text](image-21.png)
 11. Edit method build
 ![alt text](image-22.png)
+12. run
+13. buka stream.dart
+![alt text](image-23.png)
+14. Buka main.dart
+![alt text](image-24.png)
+15. Edit method addRandomNumber()
+![alt text](image-25.png)
+
 
 
 
@@ -83,4 +91,8 @@
 > Digunakan untuk menambahkan nomer secara dan menambahkan ke sink 
  ![alt text](soal6.gif)
 
-## soal 
+## soal 7
+- jelaskan kode langkah 13 sampai 15 tersebut!
+> pada langkah 13 menambahkan function untuk menghandel error
+> pada langkah 14 menambahkan main menambahkan handling pada initstate
+> pada langkah 15 menjadikan error karena tidak ada data yang diinputkan, hanya menambahkan onError
