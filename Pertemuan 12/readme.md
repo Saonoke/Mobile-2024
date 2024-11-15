@@ -113,25 +113,91 @@
 ![alt text](image-27.png)
 
 ## Praktikum 6
+
 1. Install plugin geolocator
-![alt text](image-28.png)
+   ![alt text](image-28.png)
 2. Tambah permisson GPS
-![alt text](image-29.png)
+   ![alt text](image-29.png)
 3. Buat file geolocation.dart
-![alt text](image-30.png)
+   ![alt text](image-30.png)
 4. Edit main.dart
-![alt text](image-32.png)
+   ![alt text](image-32.png)
 5. Tambahkan animasi loading
 
-
-
 ## Soal 11
+
 ![alt text](image-31.png)
 
 ## Soal 12
- - percobaan pada browser
- ![alt text](image-33.png)
- > pada browser masih bisa mennjalankan selama perizinan lokasi di izinkan
+
+- percobaan pada browser
+  ![alt text](image-33.png)
+  > pada browser masih bisa mennjalankan selama perizinan lokasi di izinkan
 
 ![alt text](soal12.gif)
 
+## Praktikum 7
+
+1. Modifikasi method getPosition()
+   ![alt text](image-35.png)
+2. Tambah variabel
+   ![alt text](image-34.png)
+3. Tambah initState
+   ![alt text](image-36.png)
+4. Edit method build()
+   ![alt text](image-37.png)
+5. Tambah handling error
+   ![alt text](image-38.png)
+
+## Soal 13
+
+- Tidak ada perbedaan dengan UI sebelumnya, hanya saja handling pada data masih di proses dan sudah memiliki perbedaan dan juga terdapat handling bila error
+  ![alt text](soal13.gif)
+
+## Soal 14
+
+- Tidak ada perbedaan dengan UI sebelumnya,namun jika terjadi error saat process data maka akan menghasilkan text berbeda
+  ![alt text](soal13.gif)
+
+## Praktikum 8
+
+1. Buat file baru navigation_first.dart
+   ![alt text](image-39.png)
+2. Isi kode navigation_first.dart
+   ![alt text](image-41.png)
+3. Tambahkan method di class \_navigationFirstState
+   ![alt text](image-40.png)
+4. Buat file baru navigation_second.dart
+   ![alt text](image-43.png)
+5. Buat class NavigationSecond dengan statefullwidget
+   ![alt text](image-42.png)
+6. Edit main.dart
+   ![alt text](image-45.png)
+7. run
+   ![alt text](image-44.png)
+
+## Soal 15
+
+![alt text](image-46.png)
+
+## soal 16
+
+- Sudah sesuai dengan warna favorit saya
+  ![alt text](soal15.gif)
+
+## Praktikum 9
+
+1.  Buat file baru navigation_dialog.dart
+2.  Isi kode navigation_dialog.dart
+    ![alt text](image-47.png)
+3.  Tambah method async
+    ![alt text](image-48.png)
+4.  panggil method di elevated button
+    ![alt text](image-49.png)
+5.  Edit main.dart
+    ![alt text](image-50.png)
+
+## Soal 17
+
+> terjadi karena ketika kita memilih salah satu warna, maka program akan menjalankan navigator.pop dengan warna yang berbeda
+> ![alt text](soal17.gif)
