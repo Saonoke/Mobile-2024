@@ -24,6 +24,30 @@
 ![alt text](image-11.png)
 
 
+## Praktikum 2
+1. Buka file Stream.dart
+![alt text](image-12.png)
+2. Tambah class NumberStream
+![alt text](image-13.png)
+3. Tambah StreamController
+![alt text](image-15.png)
+4. Tambah method addNumberToSink
+![alt text](image-14.png)
+5. Tambah method Close()
+![alt text](image-16.png)
+6. buka main.dart
+![alt text](image-17.png)
+7. Tambah variabel
+![alt text](image-18.png)
+8.  Edit initState()
+![alt text](image-19.png)
+9. Edit dispose()
+![alt text](image-20.png)
+10. Tambah method addRandomNumber()
+![alt text](image-21.png)
+11. Edit method build
+![alt text](image-22.png)
+
 
 
 ## Soal 1
@@ -45,3 +69,18 @@
 
 ## soal 4
  ![alt text](soal4.gif)
+
+## soal 5
+- Jelaskan perbedaan menggunakan listen dan await for (langkah 9) !
+`listen` = digunakan untuk mendapatkan setiap data dari stream
+`await for` = digunakan untuk mengiterate untuk setiap objek dengan menunggu setiap proses
+
+## soal 6
+- Jelaskan maksud kode langkah 8 dan 10 tersebut!
+> langkah 8
+> init state digunakan untuk pendeklarasian dari class stream dan controller
+> langkah 10
+> Digunakan untuk menambahkan nomer secara dan menambahkan ke sink 
+ ![alt text](soal6.gif)
+
+## soal 
