@@ -65,6 +65,26 @@
    ![alt text](image-28.png)
 4. Run
 
+## Praktikum 4
+
+1. Tambah variabel
+   ![alt text](image-29.png)
+2. Edit initState()
+   ![alt text](image-31.png)
+3. tetap initState()
+   ![alt text](image-30.png)
+4. tambah properti onDone()
+   ![alt text](image-32.png)
+5. Tambah method baru
+   ![alt text](image-33.png)
+6. Pindah ke method dispose
+   ![alt text](image-34.png)
+7. Pindah ke method build
+   ![alt text](image-35.png)
+8. Edit method addRandomNumber
+   ![alt text](image-36.png)
+9. run
+
 ## Soal 1
 
 - Tambahkan nama panggilan Anda pada title app sebagai identitas hasil pekerjaan Anda.
@@ -117,3 +137,14 @@
   > pada langkah 3 mengubah variabel lastnumber dengan event dari StreamTransformer
 
 ![alt text](soal8.gif)
+
+## soal 9
+
+- Jelaskan maksud kode langkah 2, 6 dan 8 tersebut!
+  > pada langkah 2 menambahkan subscription yang listen terhadap event dari stream lalu mengubah last number dengan event atau data dari stream
+  > pada langkah 6 dispose digunakan ketika stream sudah tidak terpakai, maka subscription akan di cancel
+  > pada langkah 8 terjadi pengecekan apabila controller masih dalam keadaan terbuka maka masih bisa menambahkan data ke stream, namun apabila sudah ditutup maka akan mengganti angka dengan -1
+
+![alt text](soal9.gif)
+
+
