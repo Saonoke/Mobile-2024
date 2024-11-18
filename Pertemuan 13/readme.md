@@ -84,6 +84,22 @@
 8. Edit method addRandomNumber
    ![alt text](image-36.png)
 9. run
+![alt text](image-37.png)
+
+## Praktikum 5
+1. buka file main.dart
+![alt text](image-38.png)
+2. Edit initState()
+![alt text](image-39.png)
+3. run
+![alt text](image-40.png)
+4. Set broadcast stream
+![alt text](image-41.png)
+5. Edit method build()
+![alt text](image-42.png)
+6. Run
+![alt text](image-43.png)
+
 
 ## Soal 1
 
@@ -146,5 +162,15 @@
   > pada langkah 8 terjadi pengecekan apabila controller masih dalam keadaan terbuka maka masih bisa menambahkan data ke stream, namun apabila sudah ditutup maka akan mengganti angka dengan -1
 
 ![alt text](soal9.gif)
+
+
+## Soal 10
+ > Karena kedua subs mendengarkan pada streamController yang sama
+
+## Soal 11
+ > Karena terjadi broadcasting, sehinga subscription menjadi bekerja 2 kali untuk subs 1 dan subs 2 sehingga terjadi dobel angka
+
+ ![alt text](soal11.gif)
+## 
 
 
