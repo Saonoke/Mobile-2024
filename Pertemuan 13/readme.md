@@ -84,22 +84,70 @@
 8. Edit method addRandomNumber
    ![alt text](image-36.png)
 9. run
-![alt text](image-37.png)
+   ![alt text](image-37.png)
 
 ## Praktikum 5
-1. buka file main.dart
-![alt text](image-38.png)
-2. Edit initState()
-![alt text](image-39.png)
-3. run
-![alt text](image-40.png)
-4. Set broadcast stream
-![alt text](image-41.png)
-5. Edit method build()
-![alt text](image-42.png)
-6. Run
-![alt text](image-43.png)
 
+1. buka file main.dart
+   ![alt text](image-38.png)
+2. Edit initState()
+   ![alt text](image-39.png)
+3. run
+   ![alt text](image-40.png)
+4. Set broadcast stream
+   ![alt text](image-41.png)
+5. Edit method build()
+   ![alt text](image-42.png)
+6. Run
+   ![alt text](image-43.png)
+
+## Praktikum 6
+
+1. Buat project baru
+   ![alt text](image-44.png)
+2. Buat file baru stream.dart
+   ![alt text](image-45.png)
+3. Tetap di file stream.dart
+   ![alt text](image-46.png)
+4. Edit main.dart
+   ![alt text](image-47.png)
+5. Tambah variabel
+   ![alt text](image-48.png)
+6. Edit initState()
+   ![alt text](image-49.png)
+7. Edit method build()
+   ![alt text](image-50.png)
+8. Run
+   ![alt text](image-51.png)
+
+## Praktikum 7
+
+1. Buat project baru
+   ![alt text](image-52.png)
+2. isi kode random_bloc.dart
+   ![alt text](image-53.png)
+3. Buat class RandomNumberBloc()
+   ![alt text](image-56.png)
+4. Buat variabelStreamController
+   ![alt text](image-55.png)
+5. Buat constructor
+   ![alt text](image-54.png)
+6. buat method dispose()
+   ![alt text](image-57.png)
+7. Edit main.dart
+   ![alt text](image-58.png)
+8. Buat file baru random_screen
+   ![alt text](image-59.png)
+9. Lakukan import material dan random_bloc.dart
+   ![alt text](image-60.png)
+10. Buat statefull widget randomscreen
+    ![alt text](image-61.png)
+11. Buat variabel
+    ![alt text](image-62.png)
+12. Buat method dispose()
+    ![alt text](image-63.png)
+13. Edit method build
+    ![alt text](image-64.png)
 
 ## Soal 1
 
@@ -163,14 +211,26 @@
 
 ![alt text](soal9.gif)
 
-
 ## Soal 10
- > Karena kedua subs mendengarkan pada streamController yang sama
+
+> Karena kedua subs mendengarkan pada streamController yang sama
 
 ## Soal 11
- > Karena terjadi broadcasting, sehinga subscription menjadi bekerja 2 kali untuk subs 1 dan subs 2 sehingga terjadi dobel angka
 
- ![alt text](soal11.gif)
-## 
+> Karena terjadi broadcasting, sehinga subscription menjadi bekerja 2 kali untuk subs 1 dan subs 2 sehingga terjadi dobel angka
 
+![alt text](soal11.gif)
 
+## Soal 12
+
+- Jelaskan maksud kode pada langkah 3 dan 7
+  > pada langkah 3 membuat stream dengan periodic setiap 1 second menghasilkan angka random 1-10
+  > pada langkah 7 membuat view menggunakan stream builder
+
+![alt text](soal12.gif)
+
+## soal 13
+
+> pada praktikum ini terjadi pemisahan pada business logic pada random bloc, letak konsep BLoC terjadi di situ, dimana pemisahan setiap logic berada pada random_bloc dan pada random_screen hanya fokus pada tampilan
+
+![alt text](soal13.gif)
