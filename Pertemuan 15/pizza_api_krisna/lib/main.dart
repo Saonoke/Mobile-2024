@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pizza_api_krisna/httphelper.dart';
 import 'package:pizza_api_krisna/pizza.dart';
+import 'package:pizza_api_krisna/pizza_detail.dart';
 
 void main() {
   runApp(const MyApp());
@@ -75,13 +76,45 @@ class _MyHomePageState extends State<MyHomePage> {
                 itemCount: (snapshot.data == null) ? 0 : snapshot.data!.length,
                 itemBuilder: (context, position) {
                   final pizza = snapshot.data![position];
-                  return ListTile(
-                    title: Text(pizza.pizzaName),
-                    subtitle: Text(
-                        pizza.description + '- Rp' + pizza.price.toString()),
+                  return Dismissible(
+                    key: Key(position.toString()),
+                    onDismissed: (item) {
+                      Httphelper helper = Httphelper();
+                      snapshot.data!.removeWhere((element) =>
+                          element.id == snapshot.data![position].id);
+
+                      helper.deletePizza(pizza.id);
+                      print("Pizza dengan Id : " +
+                          pizza.id.toString() +
+                          " deleted");
+                    },
+                    child: ListTile(
+                      title: Text(pizza.pizzaName),
+                      subtitle: Text(
+                          pizza.description + '- Rp' + pizza.price.toString()),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PizzaDetaiScreen(
+                                    pizza: pizza, isNew: false)));
+                      },
+                    ),
                   );
                 });
           }),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const PizzaDetaiScreen(
+                        pizza: null,
+                        isNew: true,
+                      )));
+        },
+      ),
     );
   }
 }

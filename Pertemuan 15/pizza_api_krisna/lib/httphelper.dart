@@ -25,4 +25,27 @@ class Httphelper {
       return [];
     }
   }
+
+  Future<String> postPizza(Pizza pizza) async {
+    final Uri url = Uri.https(authority, '/pizza');
+    String post = jsonEncode(pizza.toJson());
+    final response = await http.post(url, body: post);
+
+    return response.body;
+  }
+
+  Future<String> putPizza(Pizza pizza) async {
+    final Uri url = Uri.https(authority, '/pizza');
+    String put = jsonEncode(pizza.toJson());
+    final response = await http.put(url, body: put);
+
+    return response.body;
+  }
+
+  Future<String> deletePizza(int id) async {
+    final Uri url = Uri.https(authority, '/pizza');
+    final response = await http.delete(url);
+
+    return response.body;
+  }
 }
